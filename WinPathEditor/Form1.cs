@@ -58,7 +58,7 @@ namespace WinPathEditor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("This can be reversed. Are you sure?", "Confirm insertion",
+            if (MessageBox.Show("This can't be reversed. Are you sure?", "Confirm insertion",
                MessageBoxButtons.YesNo,
                MessageBoxIcon.Question,
                MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes) 
