@@ -36,12 +36,8 @@ namespace WinPathEditor
         {
             string result = "";
 
-            for (int i = 0; i < strList.Count - 1; ++i) {
+            for (int i = 0; i < strList.Count; ++i) {
                 result += strList[i] + delim;
-            }
-
-            if (strList.Count >= 1) {
-                result += strList[strList.Count - 1];
             }
 
             return result;

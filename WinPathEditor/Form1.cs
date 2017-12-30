@@ -25,7 +25,7 @@ namespace WinPathEditor
 
         private void SetPathStr(string str)
         {
-            Registry.SetValue(@"HKEY_CURRENT_USER\Environment", "Path", str);
+            System.Environment.SetEnvironmentVariable("PATH", str, EnvironmentVariableTarget.User);
         }
 
         private void UploadPathEntriesList()
@@ -81,12 +81,13 @@ namespace WinPathEditor
 
                 if (pathStr != null) {
                     List<string> path = GeneralUse.Split(pathStr, ';');
-
+                    int offset = 0;
                     foreach (ListViewItem item in listView1.SelectedItems) {
-                        path.RemoveAt(item.Index);
+                        path.RemoveAt(item.Index - offset);
+                        ++offset;
                     }
 
-                    string newPathStr = GeneralUse.Join(path, ';') + ';';
+                    string newPathStr = GeneralUse.Join(path, ';');
 
                     SetPathStr(newPathStr);
                 }
